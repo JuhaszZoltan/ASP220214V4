@@ -13,7 +13,7 @@ namespace ASP220214V4.Models
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
-        [MaxLength(10), DataType("VARCHAR")]
+        [MaxLength(10), Column(TypeName = "VARCHAR")]
         public string Nev { get; set; }
         public int ElofizetoiDij { get; set; }
         public int ElofizetettHonapokSzama { get; set; }

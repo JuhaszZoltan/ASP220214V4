@@ -21,6 +21,7 @@ namespace ASP220214V4.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<ElofizetesTipus> ElofizetesTipusok { get; set; }
+        public DbSet<Ugyfel> Ugyfelek { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

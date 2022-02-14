@@ -188,6 +188,18 @@
     <Compile Include="Migrations\202202141648376_seed_elofizetestipusok.designer.cs">
       <DependentUpon>202202141648376_seed_elofizetestipusok.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202141704087_add_ugyfelek.cs" />
+    <Compile Include="Migrations\202202141704087_add_ugyfelek.designer.cs">
+      <DependentUpon>202202141704087_add_ugyfelek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202141707373_seed_ugyfelek.cs" />
+    <Compile Include="Migrations\202202141707373_seed_ugyfelek.designer.cs">
+      <DependentUpon>202202141707373_seed_ugyfelek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202141714288_update_custom_tables.cs" />
+    <Compile Include="Migrations\202202141714288_update_custom_tables.designer.cs">
+      <DependentUpon>202202141714288_update_custom_tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ElofizetesTipus.cs" />
@@ -281,6 +293,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202141648376_seed_elofizetestipusok.resx">
       <DependentUpon>202202141648376_seed_elofizetestipusok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202141704087_add_ugyfelek.resx">
+      <DependentUpon>202202141704087_add_ugyfelek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202141707373_seed_ugyfelek.resx">
+      <DependentUpon>202202141707373_seed_ugyfelek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202141714288_update_custom_tables.resx">
+      <DependentUpon>202202141714288_update_custom_tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
