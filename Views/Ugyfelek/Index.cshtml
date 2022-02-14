@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ASP220214V4.Models.Ugyfel>
+
+<h2>Ugyfelek Listája</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Név</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ugyfel in Model)
+        {
+            <tr>
+                <td><a href="\Ugyfelek\Reszletek\@ugyfel.Id">@ugyfel.Id</a></td>
+                <td>@ugyfel.Nev</td>
+                <td>@ugyfel.ElofizetesTipus.Nev</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
