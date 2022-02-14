@@ -176,9 +176,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202141642069_init_identity.cs" />
+    <Compile Include="Migrations\202202141642069_init_identity.designer.cs">
+      <DependentUpon>202202141642069_init_identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202141646520_add_elofizetestipusok.cs" />
+    <Compile Include="Migrations\202202141646520_add_elofizetestipusok.designer.cs">
+      <DependentUpon>202202141646520_add_elofizetestipusok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202141648376_seed_elofizetestipusok.cs" />
+    <Compile Include="Migrations\202202141648376_seed_elofizetestipusok.designer.cs">
+      <DependentUpon>202202141648376_seed_elofizetestipusok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ElofizetesTipus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Ugyfel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -199,6 +214,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\verebely_logo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -256,7 +272,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202202141642069_init_identity.resx">
+      <DependentUpon>202202141642069_init_identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202141646520_add_elofizetestipusok.resx">
+      <DependentUpon>202202141646520_add_elofizetestipusok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202141648376_seed_elofizetestipusok.resx">
+      <DependentUpon>202202141648376_seed_elofizetestipusok.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
