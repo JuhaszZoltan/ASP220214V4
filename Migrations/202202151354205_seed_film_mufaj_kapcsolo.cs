@@ -41,6 +41,10 @@
             Sql("INSERT INTO FilmMufajKapcsolo VALUES (10, 1);");
             Sql("INSERT INTO FilmMufajKapcsolo VALUES (10, 5);");
             Sql("INSERT INTO FilmMufajKapcsolo VALUES (10, 8);");
+            //Predestination
+            Sql("INSERT INTO FilmMufajKapcsolo VALUES (11, 1)");
+            Sql("INSERT INTO FilmMufajKapcsolo VALUES (11, 3)");
+            Sql("INSERT INTO FilmMufajKapcsolo VALUES (11, 4)");
         }
 
         public override void Down()

@@ -255,6 +255,7 @@
     <Content Include="Content\imgs\cover_imgs\kill_bill_ci.jpg" />
     <Content Include="Content\imgs\cover_imgs\matrix_ci.jpg" />
     <Content Include="Content\imgs\cover_imgs\metropolis_ci.jpg" />
+    <Content Include="Content\imgs\cover_imgs\predestination_ci.jpg" />
     <Content Include="Content\imgs\cover_imgs\prestige_ci.jpg" />
     <Content Include="Content\imgs\cover_imgs\true_romance_ci.jpg" />
     <Content Include="Content\imgs\cover_imgs\twelve_monkeys_ci.jpg" />
