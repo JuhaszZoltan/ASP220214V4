@@ -10,10 +10,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Főoldal", "Index", "Home", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
                     @Html.ActionLink("Ügyfelek", "Index", "Ugyfelek", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Filmek", "Index", "Filmek", null, new { @class = "nav-link" })
                 </li>
             </ul>
             @Html.Partial("_LoginPartial")
