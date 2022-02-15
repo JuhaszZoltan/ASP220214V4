@@ -1,7 +1,7 @@
 ﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="https://hu.wikipedia.org/wiki/Vereb%C3%A9l%C3%BF_L%C3%A1szl%C3%B3_(villamosm%C3%A9rn%C3%B6k)" target="_blank">
-            <img src="~/Content/verebely_logo.jpg" width="30" height="30" class="d-inline-block align-text-top">
+            <img src="~/Content/imgs/verebely_logo.jpg" width="30" height="30" class="d-inline-block align-text-top">
             Verebélÿ Filmtéka
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,10 +10,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link active" })
+                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Ügyfelek", "Index", "Ugyfelek", null, new { @class = "nav-link active" })
+                    @Html.ActionLink("Ügyfelek", "Index", "Ugyfelek", null, new { @class = "nav-link" })
                 </li>
             </ul>
             @Html.Partial("_LoginPartial")

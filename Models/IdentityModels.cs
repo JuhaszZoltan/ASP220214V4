@@ -22,6 +22,9 @@ namespace ASP220214V4.Models
     {
         public DbSet<ElofizetesTipus> ElofizetesTipusok { get; set; }
         public DbSet<Ugyfel> Ugyfelek { get; set; }
+        public DbSet<Film> Filmek { get; set; }
+        public DbSet<Mufaj> Mufajok { get; set; }
+        public DbSet<FilmMufaj> FilmMufajKapcsolo { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
