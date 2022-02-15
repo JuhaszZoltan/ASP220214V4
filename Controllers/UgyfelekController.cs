@@ -34,5 +34,15 @@ namespace ASP220214V4.Controllers
             if (ugyfel is null) return HttpNotFound();
             else return View(ugyfel);
         }
+
+        public ActionResult UjUgyfel()
+        {
+            var elofizetesTipusok = _context.ElofizetesTipusok.ToList();
+            var viewModel = new UjUgyfelViewModel
+            {
+                ElofizetesTipusok = elofizetesTipusok,
+            };
+            return View(viewModel);
+        }
     }
 }

@@ -17,7 +17,6 @@ namespace ASP220214V4.Controllers
         protected override void Dispose(bool disposing) =>
             _context.Dispose();
         #endregion
-
         public ActionResult Index()
         {
             var kapcs = _context.FilmMufajKapcsolo
@@ -30,17 +29,18 @@ namespace ASP220214V4.Controllers
             {
                 if (!dic.ContainsKey(k.Film))
                 {
-                    dic.Add(k.Film, new List<Mufaj>() { k.Mufaj });
+                    dic.Add(k.Film, new List<Mufaj>());
                 }
-                else dic[k.Film].Add(k.Mufaj);
+                dic[k.Film].Add(k.Mufaj);
             }
             var vml = new List<FilmViewModel>();
             foreach (var kvp in dic)
             {
-                vml.Add(new FilmViewModel() {
-                Film = kvp.Key,
-                Mufajok = new List<Mufaj>()});
-                vml.Last().Mufajok.AddRange(kvp.Value);
+                vml.Add(new FilmViewModel()
+                {
+                    Film = kvp.Key,
+                    Mufajok = kvp.Value,
+                });
             }
             return View(vml);
         }

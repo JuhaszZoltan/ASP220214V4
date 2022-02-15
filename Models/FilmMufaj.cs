@@ -12,7 +12,6 @@ namespace ASP220214V4.Models
     {
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None), Column(Order = 0), ForeignKey("Film")]
         public int FilmId { get; set; }
-
         public Film Film { get; set; }
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None), Column(Order = 1), ForeignKey("Mufaj")]
         public int MufajId { get; set; }

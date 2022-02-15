@@ -18,7 +18,6 @@ namespace ASP220214V4.Models
         public string MagyarCim { get; set; }
         public int MegjelenesiEv { get; set; }
         [MaxLength(60), Column(TypeName = "VARCHAR")]
-        //~/Content/imgs/cover_imgs/
         public string Kep { get; set; }
         public bool Korhataros { get; set; }
     }

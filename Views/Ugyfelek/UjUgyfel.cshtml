@@ -1,0 +1,29 @@
+﻿@model ASP220214V4.Models.UjUgyfelViewModel
+
+<h2>Új ugyfél hozzáadása</h2>
+
+@using (Html.BeginForm("UjUgyfel", "Ugyfelek"))
+{
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Ugyfel.Nev, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Ugyfel.Nev, new { @class = "form-control" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Ugyfel.SzuletesiDatum, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Ugyfel.SzuletesiDatum, new { @class = "form-control" })
+    </div>
+    <div class="mb-3">
+        <div class="form-check">
+            <label class="form-check-label">
+                @Html.CheckBoxFor(m => m.Ugyfel.HirlevelFeliratkozas, new { @class = "form-check-input", @checked = "true" })
+                Szeretne feliratkozni a hírlevélre?
+            </label>
+        </div>
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Ugyfel.ElofizetesTipusId, new { @class = "form-label" })
+        @Html.DropDownListFor(m => m.Ugyfel.ElofizetesTipusId, new SelectList(Model.ElofizetesTipusok, "Id", "Nev"), null, new { @class = "form-control" })
+    </div>
+
+}
+

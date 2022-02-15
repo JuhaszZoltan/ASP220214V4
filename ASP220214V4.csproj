@@ -218,6 +218,10 @@
     <Compile Include="Migrations\202202151354205_seed_film_mufaj_kapcsolo.designer.cs">
       <DependentUpon>202202151354205_seed_film_mufaj_kapcsolo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202151743041_update_ugyfelek.cs" />
+    <Compile Include="Migrations\202202151743041_update_ugyfelek.designer.cs">
+      <DependentUpon>202202151743041_update_ugyfelek.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ElofizetesTipus.cs" />
@@ -228,6 +232,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mufaj.cs" />
     <Compile Include="Models\Ugyfel.cs" />
+    <Compile Include="Models\UjUgyfelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -259,7 +264,7 @@
     <Content Include="Content\imgs\cover_imgs\prestige_ci.jpg" />
     <Content Include="Content\imgs\cover_imgs\true_romance_ci.jpg" />
     <Content Include="Content\imgs\cover_imgs\twelve_monkeys_ci.jpg" />
-    <Content Include="Content\imgs\verebely_logo.jpg" />
+    <Content Include="Content\imgs\verebely_logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -319,6 +324,7 @@
     <Content Include="Views\Ugyfelek\Index.cshtml" />
     <Content Include="Views\Ugyfelek\Reszletek.cshtml" />
     <Content Include="Views\Filmek\Index.cshtml" />
+    <Content Include="Views\Ugyfelek\UjUgyfel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202202141642069_init_identity.resx">
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202151354205_seed_film_mufaj_kapcsolo.resx">
       <DependentUpon>202202151354205_seed_film_mufaj_kapcsolo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202151743041_update_ugyfelek.resx">
+      <DependentUpon>202202151743041_update_ugyfelek.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
