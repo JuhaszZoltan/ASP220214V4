@@ -1,8 +1,8 @@
-﻿@model ASP220214V4.Models.UjUgyfelViewModel
+﻿@model ASP220214V4.Models.UgyfelFormViewModel
 
 <h2>Új ugyfél hozzáadása</h2>
 
-@using (Html.BeginForm("UjUgyfel", "Ugyfelek"))
+@using (Html.BeginForm("Mentes", "Ugyfelek"))
 {
     <div class="mb-3">
         @Html.LabelFor(m => m.Ugyfel.Nev, new { @class = "form-label" })
@@ -10,7 +10,7 @@
     </div>
     <div class="mb-3">
         @Html.LabelFor(m => m.Ugyfel.SzuletesiDatum, new { @class = "form-label" })
-        @Html.TextBoxFor(m => m.Ugyfel.SzuletesiDatum, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Ugyfel.SzuletesiDatum, "{0: yyyy. MMM d.}", new { @class = "form-control" })
     </div>
     <div class="mb-3">
         <div class="form-check">
@@ -24,6 +24,6 @@
         @Html.LabelFor(m => m.Ugyfel.ElofizetesTipusId, new { @class = "form-label" })
         @Html.DropDownListFor(m => m.Ugyfel.ElofizetesTipusId, new SelectList(Model.ElofizetesTipusok, "Id", "Nev"), null, new { @class = "form-control" })
     </div>
-
+    @Html.HiddenFor(m => m.Ugyfel.Id);
+    <button type="submit" class="btn btn-primary">Mentés</button>
 }
-

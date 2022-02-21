@@ -7,21 +7,22 @@
         <tr>
             <th>ID</th>
             <th>Név</th>
+            <ht>előfizetés</ht>
         </tr>
     </thead>
     <tbody>
         @foreach (var ugyfel in Model)
         {
             <tr>
-                <td><a href="\Ugyfelek\Reszletek\@ugyfel.Id">@ugyfel.Id</a></td>
-                <td>@ugyfel.Nev</td>
+                <td>@ugyfel.Id</td>
+                <td>@Html.ActionLink(ugyfel.Nev, "Szerkesztes", "Ugyfelek", new { Id = ugyfel.Id }, null)</td>
                 <td>@ugyfel.ElofizetesTipus.Nev</td>
             </tr>
         }
     </tbody>
 </table>
 <div class="d-flex justify-content-center">
-    <a href="~/Ugyfelek/UjUgyfel" class="btn btn-primary">Új ügyfél hozzáadása</a>
+    <a href="~/Ugyfelek/UgyfelForm" class="btn btn-primary">Új ügyfél hozzáadása</a>
 </div>
 
 

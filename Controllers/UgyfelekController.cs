@@ -35,14 +35,50 @@ namespace ASP220214V4.Controllers
             else return View(ugyfel);
         }
 
-        public ActionResult UjUgyfel()
+        public ActionResult UgyfelForm()
         {
             var elofizetesTipusok = _context.ElofizetesTipusok.ToList();
-            var viewModel = new UjUgyfelViewModel
+            var viewModel = new UgyfelFormViewModel
             {
                 ElofizetesTipusok = elofizetesTipusok,
             };
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Mentes(Ugyfel ugyfel)
+        {
+            if (ugyfel.Id == 0)
+            {
+                _context.Ugyfelek.Add(ugyfel);
+            }
+            else
+            {
+                var ugyfelInDb = _context.Ugyfelek.Single(u => u.Id == ugyfel.Id);
+
+                ugyfelInDb.Nev = ugyfel.Nev;
+                ugyfelInDb.SzuletesiDatum = ugyfel.SzuletesiDatum;
+                ugyfelInDb.ElofizetesTipusId = ugyfel.ElofizetesTipusId;
+                ugyfelInDb.HirlevelFeliratkozas = ugyfel.HirlevelFeliratkozas;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Ugyfelek");
+        }
+
+        public ActionResult Szerkesztes(int id)
+        {
+            var ugyfel = _context.Ugyfelek.SingleOrDefault(u => u.Id == id);
+            var elofizetesTipusok = _context.ElofizetesTipusok.ToList();
+            if (ugyfel is null) return HttpNotFound();
+            else
+            {
+                var viewModel = new UgyfelFormViewModel()
+                {
+                    Ugyfel = ugyfel,
+                    ElofizetesTipusok = elofizetesTipusok,
+                };
+                return View("UgyfelForm", viewModel);
+            }
         }
     }
 }

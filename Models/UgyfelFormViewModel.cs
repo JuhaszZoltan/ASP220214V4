@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ASP220214V4.Models
 {
-    public class UjUgyfelViewModel
+    public class UgyfelFormViewModel
     {
         public Ugyfel Ugyfel { get; set; }
         public IEnumerable<ElofizetesTipus> ElofizetesTipusok { get; set; }
