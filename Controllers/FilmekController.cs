@@ -21,28 +21,23 @@ namespace ASP220214V4.Controllers
         {
             var kapcs = _context.FilmMufajKapcsolo
                 .Include(k => k.Film)
-                .Include(k => k.Mufaj)
-                .ToList();
+                .Include(k => k.Mufaj);
 
-            var dic = new Dictionary<Film, List<Mufaj>>();
-            foreach (var k in kapcs)
+            var viewModelList = new List<FilmViewModel>();
+
+            foreach (var fm in kapcs)
             {
-                if (!dic.ContainsKey(k.Film))
+                if (!viewModelList.Any(x => x.Film.Id == fm.FilmId))
                 {
-                    dic.Add(k.Film, new List<Mufaj>());
+                    viewModelList.Add(new FilmViewModel
+                    {
+                        Film = fm.Film,
+                        Mufajok = new List<Mufaj>(),
+                    });
                 }
-                dic[k.Film].Add(k.Mufaj);
+                viewModelList.Single(x => x.Film.Id == fm.FilmId).Mufajok.Add(fm.Mufaj);
             }
-            var vml = new List<FilmViewModel>();
-            foreach (var kvp in dic)
-            {
-                vml.Add(new FilmViewModel()
-                {
-                    Film = kvp.Key,
-                    Mufajok = kvp.Value,
-                });
-            }
-            return View(vml);
+            return View(viewModelList);
         }
 
         public ActionResult Reszletek(int id)
