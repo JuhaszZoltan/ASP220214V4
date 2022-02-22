@@ -17,6 +17,7 @@ namespace ASP220214V4.Models
         public string Nev { get; set; }
         [Display(Name = "Születési dátum:")]
         [Column(TypeName = "DATE")]
+        [Nagykoru]
         public DateTime? SzuletesiDatum { get; set; }
         //public bool Nagykoru => DateTime.Now.AddYears(-18) >= SzuletesiDatum;
         public bool HirlevelFeliratkozas { get; set; } = false;

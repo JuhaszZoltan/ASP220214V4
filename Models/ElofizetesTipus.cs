@@ -18,5 +18,7 @@ namespace ASP220214V4.Models
         public int ElofizetoiDij { get; set; }
         public int ElofizetettHonapokSzama { get; set; }
         public int Kedvezmeny { get; set; }
+
+        public static readonly int Bronze = 1; 
     }
 }

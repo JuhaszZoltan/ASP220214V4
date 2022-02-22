@@ -235,6 +235,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mufaj.cs" />
+    <Compile Include="Models\Nagykoru.cs" />
     <Compile Include="Models\Ugyfel.cs" />
     <Compile Include="Models\UgyfelFormViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
