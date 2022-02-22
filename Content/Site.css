@@ -26,3 +26,11 @@ textarea {
 .age-warning {
     color: red;
 }
+
+.input-validation-error {
+    border: 2px solid red;
+}
+
+.field-validation-error {
+    color: red;
+}

@@ -1,16 +1,17 @@
 ﻿@model ASP220214V4.Models.Ugyfel
 
-@{
-    string nagykoruString = Model.Nagykoru ? "IGEN" : "NEM";
-    var classNev = !Model.Nagykoru ? "age-warning" : null;
+@{ 
+    string dts = Model.SzuletesiDatum is null
+        ? "nincs megadva"
+        : ((DateTime)Model.SzuletesiDatum).ToString("yyyy. MMMM dd.");
 }
+
 
 <h2>@Model.Nev Adatai:</h2>
 
 <ul>
     <li><strong>Név:</strong> @Model.Nev</li>
-    <li><strong>Születési dátum:</strong> @Model.SzuletesiDatum.ToString("yyyy. MMMM dd.")</li>
-    <li><strong>Nagykorú?</strong> <span class="@classNev">@nagykoruString</span></li>
+    <li><strong>Születési dátum:</strong> @dts</li>
     <li><strong>Előfizetés típusa:</strong> @Model.ElofizetesTipus.Nev</li>
 </ul>
 

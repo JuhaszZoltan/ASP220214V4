@@ -37,10 +37,10 @@ namespace ASP220214V4.Controllers
 
         public ActionResult UgyfelForm()
         {
-            var elofizetesTipusok = _context.ElofizetesTipusok.ToList();
             var viewModel = new UgyfelFormViewModel
             {
-                ElofizetesTipusok = elofizetesTipusok,
+                Ugyfel = new Ugyfel() { Id = 0 },
+                ElofizetesTipusok = _context.ElofizetesTipusok.ToList(),
             };
             return View(viewModel);
         }
@@ -48,6 +48,18 @@ namespace ASP220214V4.Controllers
         [HttpPost]
         public ActionResult Mentes(Ugyfel ugyfel)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new UgyfelFormViewModel()
+                {
+                    Ugyfel = ugyfel,
+                    ElofizetesTipusok = _context.ElofizetesTipusok.ToList(),
+                };
+
+                return View("UgyfelForm", viewModel);
+            }
+
+
             if (ugyfel.Id == 0)
             {
                 _context.Ugyfelek.Add(ugyfel);

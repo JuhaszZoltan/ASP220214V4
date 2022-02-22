@@ -1,0 +1,10 @@
+ezekre az annotációkra triggel a ModelState.IsValid:
+
+[Required]
+[StringLength(255)]
+[Range(1, 10)]
+[Compare("MásikProperty")]
+[Phone]
+[EmailAdress]
+[Url]
+[RegularExpression("....")]

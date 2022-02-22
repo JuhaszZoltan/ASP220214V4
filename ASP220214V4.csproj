@@ -222,6 +222,10 @@
     <Compile Include="Migrations\202202151743041_update_ugyfelek.designer.cs">
       <DependentUpon>202202151743041_update_ugyfelek.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202221654461_update_ugyfelek_2.cs" />
+    <Compile Include="Migrations\202202221654461_update_ugyfelek_2.designer.cs">
+      <DependentUpon>202202221654461_update_ugyfelek_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ElofizetesTipus.cs" />
@@ -268,6 +272,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Notes\jegyzet.txt" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -359,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202151743041_update_ugyfelek.resx">
       <DependentUpon>202202151743041_update_ugyfelek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202221654461_update_ugyfelek_2.resx">
+      <DependentUpon>202202221654461_update_ugyfelek_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
