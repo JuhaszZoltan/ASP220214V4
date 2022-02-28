@@ -1,4 +1,6 @@
-﻿using ASP220214V4.Models;
+﻿using ASP220214V4.Dtos;
+using ASP220214V4.Models;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,37 +21,39 @@ namespace ASP220214V4.Controllers.Api
 
         //GET -> /api/ugyfelek
         [HttpGet]
-        public IEnumerable<Ugyfel> UgyfelekListaja()
+        public IEnumerable<UgyfelDto> UgyfelekListaja()
         {
-            return _context.Ugyfelek.ToList();
+            return _context.Ugyfelek.ToList().Select(Mapper.Map<Ugyfel, UgyfelDto>);
         }
 
         //GET -> /api/ugyfelek/{id}
         [HttpGet]
-        public Ugyfel EgyBizonyosUgyfel(int id)
+        public UgyfelDto EgyBizonyosUgyfel(int id)
         {
             var ugyfel = _context.Ugyfelek.SingleOrDefault(u => u.Id == id);
             if (ugyfel is null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
-            return ugyfel;
+            return Mapper.Map<Ugyfel, UgyfelDto>(ugyfel);
         }
 
         //POST -> /api/ugyfelek
         [HttpPost]
-        public Ugyfel UjUgyfelRogzitese(Ugyfel ugyfel)
+        public UgyfelDto UjUgyfelRogzitese(UgyfelDto ugyfelDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
-
+            var ugyfel = Mapper.Map<UgyfelDto, Ugyfel>(ugyfelDto);
             _context.Ugyfelek.Add(ugyfel);
             _context.SaveChanges();
 
-            return ugyfel;
+            ugyfelDto.Id = ugyfel.Id;
+
+            return ugyfelDto;
         }
 
         //PUT -> /api/ugyfelek/{id}
         [HttpPut]
-        public void UgyfelAdatainakFrissitese(int id, Ugyfel ugyfel)
+        public void UgyfelAdatainakFrissitese(int id, UgyfelDto ugyfelDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -59,10 +63,7 @@ namespace ASP220214V4.Controllers.Api
             if (ugyfelInDb is null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            ugyfelInDb.Nev = ugyfel.Nev;
-            ugyfelInDb.SzuletesiDatum = ugyfel.SzuletesiDatum;
-            ugyfelInDb.HirlevelFeliratkozas = ugyfel.HirlevelFeliratkozas;
-            ugyfelInDb.ElofizetesTipusId = ugyfel.ElofizetesTipusId;
+            Mapper.Map(ugyfelDto, ugyfelInDb);
 
             _context.SaveChanges();
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ASP220214V4.Dtos;
+using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,7 +12,11 @@ namespace ASP220214V4.Models
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var ugyfel = (Ugyfel)validationContext.ObjectInstance;
+            Ugyfel ugyfel = null;
+
+            if (validationContext.ObjectInstance is Ugyfel)
+                ugyfel = (Ugyfel)validationContext.ObjectInstance;
+            else ugyfel = Mapper.Map((UgyfelDto)validationContext.ObjectInstance, ugyfel);
 
             if (ugyfel.ElofizetesTipusId == ElofizetesTipus.Bronze)
                 return ValidationResult.Success;
