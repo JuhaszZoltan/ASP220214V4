@@ -4,9 +4,9 @@
 
 @using (Html.BeginForm("Mentes", "Ugyfelek"))
 {
-    string ptrn = Model.Ugyfel.SzuletesiDatum is null
+    string dateValue = Model.Ugyfel.SzuletesiDatum is null
         ? null
-        : ((DateTime)Model.Ugyfel.SzuletesiDatum).ToString("{0: yyyy. MMM d.}");
+        : ((DateTime)Model.Ugyfel.SzuletesiDatum).ToString("yyyy-MM-dd");
 
     <div class="mb-3">
         @Html.LabelFor(m => m.Ugyfel.Nev, new { @class = "form-label" })
@@ -15,7 +15,7 @@
     </div>
     <div class="mb-3">
         @Html.LabelFor(m => m.Ugyfel.SzuletesiDatum, new { @class = "form-label" })
-        @Html.TextBoxFor(m => m.Ugyfel.SzuletesiDatum, ptrn, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Ugyfel.SzuletesiDatum, new { @class = "form-control", type = "date", @Value = dateValue })
         @Html.ValidationMessageFor(m => m.Ugyfel.SzuletesiDatum)
     </div>
     <div class="mb-3">
