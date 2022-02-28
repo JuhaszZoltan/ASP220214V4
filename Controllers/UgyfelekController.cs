@@ -39,7 +39,7 @@ namespace ASP220214V4.Controllers
         {
             var viewModel = new UgyfelFormViewModel
             {
-                Ugyfel = new Ugyfel() { Id = 0 },
+                Ugyfel = new Ugyfel() { Id = 0, HirlevelFeliratkozas = true },
                 ElofizetesTipusok = _context.ElofizetesTipusok.ToList(),
             };
             return View(viewModel);
