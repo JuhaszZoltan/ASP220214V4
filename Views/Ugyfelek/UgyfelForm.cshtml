@@ -30,7 +30,8 @@
         @Html.LabelFor(m => m.Ugyfel.ElofizetesTipusId, new { @class = "form-label" })
         @Html.DropDownListFor(m => m.Ugyfel.ElofizetesTipusId, new SelectList(Model.ElofizetesTipusok, "Id", "Nev"), null, new { @class = "form-control" })
     </div>
-    @Html.HiddenFor(m => m.Ugyfel.Id);
+    @Html.HiddenFor(m => m.Ugyfel.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Mentés</button>
 }
 

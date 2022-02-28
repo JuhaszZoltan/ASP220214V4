@@ -46,6 +46,7 @@ namespace ASP220214V4.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Mentes(Ugyfel ugyfel)
         {
             if (!ModelState.IsValid)
