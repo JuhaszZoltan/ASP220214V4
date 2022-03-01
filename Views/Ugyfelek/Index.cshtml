@@ -2,12 +2,13 @@
 
 <h2>Ugyfelek Listája</h2>
 
-<table class="table">
+<table id="ugyfelek" class="table">
     <thead>
         <tr>
             <th>ID</th>
             <th>Név</th>
             <ht>előfizetés</ht>
+            <th>törlés</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,9 @@
                 <td>@ugyfel.Id</td>
                 <td>@Html.ActionLink(ugyfel.Nev, "Szerkesztes", "Ugyfelek", new { Id = ugyfel.Id }, null)</td>
                 <td>@ugyfel.ElofizetesTipus.Nev</td>
+                <td>
+                    <button data-ugyfel-id="@ugyfel.Id" class="btn-danger js-delete">Törlés</button>
+                </td>
             </tr>
         }
     </tbody>
@@ -24,5 +28,23 @@
 <div class="d-flex justify-content-center">
     <a href="~/Ugyfelek/UgyfelForm" class="btn btn-primary">Új ügyfél hozzáadása</a>
 </div>
-
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#ugyfelek .js-delete").on("click", function () {
+                var btn = $(this);
+                if (confirm("Biztosan törölni szereténd az ügyfelet?")) {
+                    $.ajax({
+                        url: "/api/ugyfelek/" + btn.attr("data-ugyfel-id"),
+                        method: "DELETE",
+                        success: function () {
+                            btn.parents("tr").remove();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
 
