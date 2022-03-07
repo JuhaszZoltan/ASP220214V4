@@ -18,6 +18,7 @@ namespace ASP220214V4.Controllers
             _context.Dispose();
         #endregion
 
+
         // GET: Ugyfelek
         public ActionResult Index()
         {

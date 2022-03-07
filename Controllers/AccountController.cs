@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ASP220214V4.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ASP220214V4.Controllers
 {
@@ -155,6 +156,12 @@ namespace ASP220214V4.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    #region temp code
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("KezelhetUgyfeleket"));
+                    //await UserManager.AddToRoleAsync(user.Id, "KezelhetUgyfeleket");
+                    #endregion
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

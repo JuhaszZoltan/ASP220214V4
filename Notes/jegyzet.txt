@@ -8,3 +8,28 @@ ezekre az annotációkra triggel a ModelState.IsValid:
 [EmailAdress]
 [Url]
 [RegularExpression("....")]
+
+Representational State Transfer
+-> REST URI: /api/ugyfelek
+
+GET
+/api/ugyfelek -> összes ugyfél összes adata -> OK (200)
+
+GET
+/api/ugyfelek/1 -> 1 db ugyfél adatai (akinek az IDja 1) -> OK (200)
+
+POST
+/api/ugyfelek -> egy új egyfelet létrehoz (akinek az idját a server generálja) -> OK (201)
+
+PUT
+/api/ugyfelek/1 -> módosítja az 1es idjű ugyfelet -> OK (200)
+
+DELET
+/api/ugyfelek/1 -> eltávolít az adatbázisbóél -> OK (200)
+
+
+admin@verebely.hu
+ARgB:`e!Rw[7<_2J
+
+user@verebely.hu
+3LqdVdE4,~][!@rv

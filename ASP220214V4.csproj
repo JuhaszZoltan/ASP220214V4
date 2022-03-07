@@ -242,6 +242,10 @@
     <Compile Include="Migrations\202202221654461_update_ugyfelek_2.designer.cs">
       <DependentUpon>202202221654461_update_ugyfelek_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203071614018_seed_identity_users.cs" />
+    <Compile Include="Migrations\202203071614018_seed_identity_users.designer.cs">
+      <DependentUpon>202203071614018_seed_identity_users.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ElofizetesTipus.cs" />
@@ -384,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202221654461_update_ugyfelek_2.resx">
       <DependentUpon>202202221654461_update_ugyfelek_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203071614018_seed_identity_users.resx">
+      <DependentUpon>202203071614018_seed_identity_users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

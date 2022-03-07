@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ASP220214V4.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
