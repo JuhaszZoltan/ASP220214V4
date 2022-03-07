@@ -8,6 +8,9 @@ namespace ASP220214V4.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        public string JogositvanySzam { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -68,6 +71,9 @@ namespace ASP220214V4.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        public string JogositvanySzam { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

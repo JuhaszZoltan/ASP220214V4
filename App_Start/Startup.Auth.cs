@@ -54,9 +54,9 @@ namespace ASP220214V4
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1767251816810139",
+               appSecret: "3e8a92681ab27e97b1fe0df1f3d1451e");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

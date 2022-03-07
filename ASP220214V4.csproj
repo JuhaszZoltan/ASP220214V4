@@ -246,6 +246,10 @@
     <Compile Include="Migrations\202203071614018_seed_identity_users.designer.cs">
       <DependentUpon>202203071614018_seed_identity_users.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203071704411_updt_idenity_appuser_model.cs" />
+    <Compile Include="Migrations\202203071704411_updt_idenity_appuser_model.designer.cs">
+      <DependentUpon>202203071704411_updt_idenity_appuser_model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ElofizetesTipus.cs" />
@@ -347,10 +351,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Ugyfelek\Index.cshtml" />
+    <Content Include="Views\Ugyfelek\AdminLista.cshtml" />
     <Content Include="Views\Ugyfelek\Reszletek.cshtml" />
     <Content Include="Views\Filmek\Index.cshtml" />
     <Content Include="Views\Ugyfelek\UgyfelForm.cshtml" />
+    <Content Include="Views\Ugyfelek\CsakOlvashatoLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202202141642069_init_identity.resx">
@@ -391,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203071614018_seed_identity_users.resx">
       <DependentUpon>202203071614018_seed_identity_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203071704411_updt_idenity_appuser_model.resx">
+      <DependentUpon>202203071704411_updt_idenity_appuser_model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

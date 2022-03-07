@@ -20,10 +20,12 @@ namespace ASP220214V4.Controllers
 
 
         // GET: Ugyfelek
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var ugyfelek = _context.Ugyfelek.Include(u => u.ElofizetesTipus).ToList();
-            return View(ugyfelek);
+            if (User.IsInRole("KezelhetUgyfeleket"))
+                return View("AdminLista", ugyfelek);
+            return View("CsakOlvashatoLista", ugyfelek);
         }
         public ActionResult Reszletek(int id)
         {
