@@ -1,0 +1,257 @@
+Visual Studio (2019 vagy 2022)
+  - ASP.NET Web development
+  - Data storage and processing
+  + .NET Framework projects and item templates
+  [ez azért kellett mert, az ASP időközben 'teljesen' átköltözött a Core-ra, és a .NET FW 'legacy' lett.]
+
+ amit meg+ban vagy ezen belül alkalmaztunk/használtunk:
+ - html 5, css 3, JavaScript
+ - Bootstrap 5
+ - (Bootswatch, color.adobe)
+ - jQuery
+ - Ajax
+ - git / GitHub
+ - Http/Https
+ - Web API
+ - FireFox -> RESTED vagy Chrome -> Postman
+ - Json
+ - Entity Framework
+ - MS identity (EF)
+ - NuGet Package manager/console
+ - Razor
+ - (Roslyn)
+ - Facebook OAuth
+ - AutoMapper
+
+// ASP.NET MVC Alapok:
+[ROUTING]
+Convention-based Routes (aka. konvencionális routolás) [nem szeretjük :(]
+a RouteConfig.cs-be:
+
+routes.MapRoute(
+	name: "FilmekMegjelenesSzerint",
+	url: "filmek/megjelenes/{ev}/{ho}",
+	defaults: new { 
+		controller = "Filmek",
+		action = "FilmekMegjelenesSzerint",
+	},
+	constraints: new {
+		ev = @"\d{4}", ho = @"\d{2}"
+	}
+);
+
+Attribute Routes [szeretjük <3]
+
+[Route("filmek/megjelenes/{ev}/{ho:regex(\\d{2}):range(1, 12)}")]
+public ActionResault FilmekMegjelenesSzerint (int ev, int ho)
+{
+	//code here
+}
+[Data -> View]
+ActionResault
+Type				Helper Method
+ViewResult
+					-> View() -> ha ures akkor az alapértelmezett view: a Views/{controllerrel azonos nevű mappa}/{actionnal azonos nevű .cshtml}
+					-> View("ViewNeve") -> paraméterben megadott view-al tér vissza a controllerrel azonos nevű mappából
+					-> View(model) -> alapértelmezett view-al tér vissza úgy, hogy a view-ban a @Model a paraméterben átatadott objektumot fogja jelenteni
+					-> View("ViewNeve", model) -> controllerrel azonos nevű mappábl a paraméterben kapott .cshtml view-val fog fisszatérni, úgy, hogy a @Model a paraméterben átadott objektumot fogja jelenteni
+					
+ContentResult
+					-> Content() -> formázatlan, nyers szöveggel tér vissza
+FileResult
+					-> File()
+JsonResult
+					-> Json()
+HttpNotFoundResult
+					-> HttpNotFound()
+					
+					
+Action Parameters:
+url-be ágyazva:
+pl.: /filmek/szerkesztes/1
+query string:
+pl.: /filmek/szerkesztes?id=1
+vagy https post-ban a kérés headerjében (pl. html-formokba ágyazva)
+
+controller actionjában:
+return View(film)
+
+razor view-ben (.cshtml)
+
+@model project.Models.Film
+@if (C#-os dolgok)
+{
+	még több C#os dolog
+}
+
+
+@model IEnumerable<project.Models.Film>
+@foreach (var f in Model)
+{
+	f az itt egy db film
+}
+
+@{
+	var cssOsztalyNeve = Model.NezokSzama > 5 ? "nepszeru" : null
+}
+
+<h2 class = "@cssOsztalyNeve">Model.Cim</h2>
+
+Partial Views
+@Html.Partial("_NavBar")
+
+
+[ENTITY FRAMEWORK]
+
+code-first migrations
+
+PM console-ba:
+
+enable-migrations
+
+add-migration <migráció neve> -> létrehotz új migrációt
+add-migration <migráció neve> -force -> felülírja az adott migrációt
+
+update-database
+
+migrációban adatbázis seedelése:
+Up()-ba:
+Sql(<ide pedig jöhet a hardcode SQL utasítás>);
+
+EF konvencióinak felülírása a model-ben attribútumokkal történhet, pl.:
+
+[Required]
+[StringLength(255)]
+public string Cim { get; set; }
+
+controllert alkalmassá tenni object querying-re:
+
+private ApplicationDbContext _context;
+public FilmekController() =>
+	_context = new ApplicationDbContext();
+protected override void Dispose(bool disposing) =>
+	_context.Dispose();
+	
+	
+LINQ-val "kérdezünk le" _context-ból. pl:
+
+var osszesFilm = _context.Filmek.ToList();
+var adottIdjóFilm = _context.Single(f => f.Id == 1);
+var mindenKrimi = _context.Where(f => f.MufajId == 3);
+
+
+"Eager loading":
+_context.Filmek.Include(f => f.Mufaj)
+var mindenKrimi = _context.Where(f => f.Mufaj == "krimi");
+
+[HTML FORMS]
+@using (Html.BeginForm("action", "controller"))
+{
+	<div class="form-group">
+		@Html.LabelFor(f => f.Cim)
+		@Html.TextBoxFor(f => f.Cim, new {@class = "form-control"})
+	</div>
+	
+	
+	<div class="checkbox">
+		@Html.CheckBoxFor(f => f.Korhataros) Korhatáros?
+	</div>
+	
+	@Html.DropDownListFor(f => f.MufajId, new SelectList(Model.Mufajok, "Id", "Megnevezes"), null, new {@class = "form-control"})
+	
+	<button type="submit" class="btn btn-primary">Mentés</button>
+}
+
+Display[Name = "Születési Dátum"]
+public DateTime SzulDatum { get; set; }
+
+[HttpPost]
+public ActionResult Mentes(Film film)
+{
+	if(film.Id == 0)
+	{
+		_context.Filmek.Add(film);
+	}
+	else
+	{
+		var filmInDB = _context.Filmek.Single(f => f.Id == film.Id)
+		//és itt meg porperty mappolás
+		
+	}	
+	_context.SaveChanges()	
+	return RedirectToAction("Index", "Filmek")
+}
+
+@Html.HiddenFor(m => m.Film.Id)
+
+[VALIDATION]
+
+if (!modelState.IsValid)
+	return View("valamilyen error page")
+
+@Html.ValidationMessageFor( m => m.Film.MegjelenesiEv)
+	
+.input-validation-error {
+	color: red;
+}
+
+.field-validation-error {
+	border: 2px solid red;
+}
+
+[Required]
+[sringLength(100)]
+[Range(1, 10)]
+[Compare("MasikPropertyNeve")]
+[EmailAddress]
+[Phone]
+[Url]
+[RegularExpression(".........")]
+
+custom validation class:
+public class Min18Eves : ValidationAttribute
+{
+	protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+	{
+		//kód
+		if (valid) return validationResult.Success;
+		else return new ValidationResult("#hibcsi~üzcsike_</3");
+	}
+}
+
+@Html.ValidationSummary(true, "lécci ezkett javíccsdd kí!!4!44!négy")
+
+@section scripts {
+	@Scripts.Render("~/bundels/jqueryval")
+}
+
+anti-forgery token:
+view-ben:
+@Html.AniForgeryToken()
+
+controllerben:
+[ValidateAntiForgeryToken]
+public ActionResult Mentes() {....}
+
+
+[REST API]
+skipp
+[CLIENT SIDE DEV]
+no way
+[AUTHENTICATION & AUTHORIZATION]
+
+[Authorize]
+-> be kell, hogy legyen jelentkezve bármivel (EF-el)
+
+[Authorize(Role = "Admin")]
+-> adott IdentityRole "ranggal" rendelkező accountal kell lennie bejelentkezve
+
+if (User.Identity.IsAthenticated) { }
+if (User.isInRole("Admin")) { }
+
+
+
+
+
+
+
